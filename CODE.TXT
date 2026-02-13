@@ -1,0 +1,35 @@
+python3 - <<'EOF'
+import json, random, math
+
+FILE_NAME = "set.json"
+QUESTIONS_PER_SET = 25   # 👈 change this only
+
+# ===== Load =====
+with open(FILE_NAME, "r", encoding="utf-8") as f:
+    questions = json.load(f)
+
+total_questions = len(questions)
+print(f"📦 Total questions found: {total_questions}")
+
+# ===== Shuffle =====
+random.shuffle(questions)
+
+# ===== Calculate total sets =====
+total_sets = total_questions // QUESTIONS_PER_SET
+print(f"🧮 Total sets possible: {total_sets}")
+
+# ===== Create sets =====
+for i in range(total_sets):
+    subset = questions[i*QUESTIONS_PER_SET:(i+1)*QUESTIONS_PER_SET]
+
+    with open(f"Set_{i+1}.json", "w", encoding="utf-8") as f:
+        f.write("[\n")
+        for j, q in enumerate(subset):
+            line = json.dumps(q, ensure_ascii=False, separators=(',', ':'))
+            f.write(line)
+            if j < len(subset) - 1:
+                f.write(",\n")
+        f.write("\n]")
+
+print("✅ All sets created successfully")
+EOF
