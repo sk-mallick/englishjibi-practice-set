@@ -2,7 +2,7 @@ python3 - <<'EOF'
 import json, os
 
 FILE_NAME = "set.json"
-QUESTIONS_PER_SET = 20  
+QUESTIONS_PER_SET = 25  
 
 if not os.path.exists(FILE_NAME):
     print(f"❌ Error: {FILE_NAME} not found.")

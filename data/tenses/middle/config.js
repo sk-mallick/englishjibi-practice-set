@@ -1,7 +1,7 @@
 export default {
     order: 2,                    // The number shown on the card (01, 02...)
     title: "Tenses",  // The big bold title
-    description: "4 Sets • 20 Questions Each - M", // The small text below
+    description: "3 Sets • 25 Questions Each - M", // The small text below
     engine: "mcq",               // "mcq" or "fill" (which HTML file to open)
     icon: "book",                 // "time", "list", "book", or "chat"
 
